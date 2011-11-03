@@ -88,3 +88,9 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'net.isammoc.gbj.auth.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'net.isammoc.gbj.auth.UserRole'
+grails.plugins.springsecurity.authority.className = 'net.isammoc.gbj.auth.Role'
+grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'salt'
