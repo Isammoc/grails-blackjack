@@ -4,14 +4,14 @@ import java.util.Random
 
 class CardController {
 
+	def cardService
+	
 	def index = {
 		redirect (action:'random')
 	}
 	
 	def random = {
-		[cards:[
-				Card.findAll()[new Random().nextInt(Card.count())]
-			]]
+		[cards:[cardService.random]]
 	}
 
 	def list = {
