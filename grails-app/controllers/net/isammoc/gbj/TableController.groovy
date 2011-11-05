@@ -23,6 +23,7 @@ class TableController {
 		[
 			table:table,
 			score:cardService.scoreToDisplay(table.player),
+			bankScore:cardService.scoreToDisplay(table.bank),
 			canCard:cardService.canCard(table)
 		]
 	}

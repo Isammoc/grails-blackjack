@@ -25,7 +25,11 @@ background-color: red;
 <g:if test="${flash.message}">
 <div class="flash">${flash.message}</div>
 </g:if>
-<mytable> <bank> Banque : <hand> <g:each
+<mytable> <bank> Banque : 
+<g:if test="${table.bank.size() > 1}">
+${bankScore}
+</g:if>
+<hand> <g:each
 	in="${table.bank}">
 	<img
 		src="<g:resource dir='images/cards/default' file='${it.name}.svg' } />"	alt="${it.name}" />
