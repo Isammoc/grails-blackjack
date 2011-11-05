@@ -86,4 +86,27 @@ class CardService {
 		}
 		table.save()
 	}
+	
+	String whoWin(Table table) {
+		if( table.bank.size() < 2 ) {
+			return null
+		}
+		
+		def winner
+		def player = score(table.player)
+		def bank =  score(table.bank)
+		
+		def playerBJ = (player == 21 && table.player.size() == 2)
+		def bankBJ = (bank == 21 && table.bank.size() == 2)
+		def playerBurn = (player > 21)
+		
+		if( !playerBurn && ((playerBJ && !bankBJ) || player > bank) ) {
+			winner = "player"
+		} else if (playerBurn || (bankBJ && !playerBJ) || bank > player) {
+			winner = "bank"
+		} else {
+			winner = "draw"
+		}
+		return winner
+	}
 }

@@ -19,17 +19,21 @@ mytable {
 .flash {
 background-color: red;
 }
+
+.winner {
+background-color: green;
+}
 </style>
 </head>
 <body>
 <g:if test="${flash.message}">
 <div class="flash">${flash.message}</div>
 </g:if>
-<mytable> <bank> Banque : 
+<mytable> <bank class="${winner == 'bank' ? 'winner':''}"> Banque : 
 <g:if test="${table.bank.size() > 1}">
 ${bankScore}
 </g:if>
-<hand> <g:each
+<hand class="${winner == 'player' ? 'winner':''}"> <g:each
 	in="${table.bank}">
 	<img
 		src="<g:resource dir='images/cards/default' file='${it.name}.svg' } />"	alt="${it.name}" />
