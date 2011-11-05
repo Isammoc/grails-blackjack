@@ -42,10 +42,24 @@ class TableController {
 		}
 		redirect(action:"show",params:[id:table.id])
 	}
-	
+
 	def stop = {
 		def table = Table.get(params.id)
 		cardService.playBank(table)
+		redirect(action:"show",params:[id:table.id])
+	}
+
+	def renew = {
+		def table = Table.get(params.id)
+		table.player = []
+		table.bank = []
+		table.addToBank(cardService.random())
+		table.addToPlayer(cardService.random())
+		table.addToPlayer(cardService.random())
+		table.save(flush:true)
+		if(!cardService.canCard(table)) {
+			cardService.playBank(table)
+		}
 		redirect(action:"show",params:[id:table.id])
 	}
 }
