@@ -22,7 +22,7 @@ mytable {
 	in="${table.bank}">
 	<img
 		src="<g:resource dir='images/cards/default' file='${it.name}.svg' } />"	alt="${it.name}" />
-</g:each> </hand> </bank> <player> Votre main : <hand> <g:each
+</g:each> </hand> </bank> <player> Votre main : ${score}<hand> <g:each
 	in="${table.player}">
 	<img
 		src="<g:resource dir='images/cards/default' file='${it.name}.svg' } />"	alt="${it.name}" />

@@ -17,7 +17,7 @@ class TableController {
 
 	def show = {
 		def table = Table.get(params.id)
-		[table:table]
+		[table:table, score:cardService.scoreToDisplay(table.player)]
 	}
 
 	def card = {
