@@ -35,7 +35,7 @@ class CardService {
 		
 		String result;
 		
-		if (aces && score == 11 && cards.size == 2) {
+		if (aces && score == 11 && cards.size() == 2) {
 			result = "Blackjack"
 		} else if(aces && (score + 10) <= 21) {
 			result = "$score / ${score + 10}"
@@ -44,5 +44,19 @@ class CardService {
 		} 
 		
 		return result;
+	}
+	
+	boolean canCard(List<Card> cards) {
+		def currentScore = scoreToDisplay(cards)
+		
+		def pattern = ~/\d+/
+		if( pattern.matcher(currentScore).matches() && Integer.parseInt(currentScore) <21 )
+		{
+			return true
+		}
+		if (currentScore ==~ /\d+ \/ \d+/ ) {
+			return true
+		}
+		return false
 	}
 }

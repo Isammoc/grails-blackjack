@@ -15,9 +15,16 @@ mytable {
   margin-left: 15%;
   margin-right: 15%
 }
+
+.flash {
+background-color: red;
+}
 </style>
 </head>
 <body>
+<g:if test="${flash.message}">
+<div class="flash">${flash.message}</div>
+</g:if>
 <mytable> <bank> Banque : <hand> <g:each
 	in="${table.bank}">
 	<img
@@ -28,8 +35,12 @@ mytable {
 		src="<g:resource dir='images/cards/default' file='${it.name}.svg' } />"	alt="${it.name}" />
 </g:each></hand>
 <controls>
+<g:if test="${canCard}">
+<a href="<g:createLink action='card' id='${table.id}'/>">Carte</a></g:if>
+<g:else>
+Vous ne pouvez plus tirer de carte
+</g:else>
 
-<a href="<g:createLink action='card' id='${table.id}'/>">Carte</a>
 </controls>
 </player> </mytable>
 </body></html>
