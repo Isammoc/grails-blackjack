@@ -12,6 +12,9 @@ class TableController {
 		table.addToPlayer(cardService.random())
 		table.addToPlayer(cardService.random())
 		table.save(flush:true)
+		if(!cardService.canCard(table.player)) {
+			cardService.playBank(table)
+		}
 		redirect(action:"show",params:[id:table.id])
 	}
 
@@ -29,9 +32,18 @@ class TableController {
 		if(cardService.canCard(table.player)){
 			table.addToPlayer(cardService.random())
 			table.save(flush:true)
+			if(!cardService.canCard(table.player)) {
+				cardService.playBank(table)
+			}
 		} else {
 			flash.message = "Mais puisque je vous dis que vous ne pouvez pas tirer de carte !!!"
 		}
+		redirect(action:"show",params:[id:table.id])
+	}
+	
+	def stop = {
+		def table = Table.get(params.id)
+		cardService.playBank(table)
 		redirect(action:"show",params:[id:table.id])
 	}
 }

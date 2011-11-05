@@ -40,11 +40,28 @@ class CardService {
 		} else if(aces && (score + 10) <= 21) {
 			result = "$score / ${score + 10}"
 		} else {
-			result = "$score";
+			result = "$score"
 		} 
 		
-		return result;
+		return result
 	}
+	
+	int score(List<Card> cards) {
+		int score = 0;
+		boolean aces = false;
+		cards.each { card ->
+			 score += scoreForRank[card.rank]
+			 if(card.rank == 'A'){
+				 aces = true;
+			 }
+			}
+		
+		if(aces && (score + 10) <= 21) {
+			score += 10
+		}
+		return score
+	}
+	
 	
 	boolean canCard(List<Card> cards) {
 		def currentScore = scoreToDisplay(cards)
@@ -58,5 +75,12 @@ class CardService {
 			return true
 		}
 		return false
+	}
+	
+	void playBank(Table table){
+		while(score(table.bank) < 17) {
+			table.addToBank(random())
+		}
+		table.save()
 	}
 }

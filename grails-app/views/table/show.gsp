@@ -36,9 +36,11 @@ background-color: red;
 </g:each></hand>
 <controls>
 <g:if test="${canCard}">
-<a href="<g:createLink action='card' id='${table.id}'/>">Carte</a></g:if>
+	<a href="<g:createLink action='card' id='${table.id}'/>">Carte</a><br />
+	<a href="<g:createLink action='stop' id='${table.id}'/>">Stop</a><br />
+</g:if>
 <g:else>
-Vous ne pouvez plus tirer de carte
+	Vous ne pouvez plus tirer de carte
 </g:else>
 
 </controls>
