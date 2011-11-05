@@ -71,5 +71,9 @@ class CardServiceTests extends GrailsUnitTestCase {
 		
 		table.player = [jack, jack, jack]
 		assert "bank" == cardService.whoWin(table)
+		
+		table.bank = [jack, jack, jack]
+		table.player = [ace, nine]
+		assert "player" == cardService.whoWin(table)
 	}
 }

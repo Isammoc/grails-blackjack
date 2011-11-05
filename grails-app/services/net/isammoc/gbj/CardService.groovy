@@ -96,11 +96,12 @@ class CardService {
 		def player = score(table.player)
 		def bank =  score(table.bank)
 		
-		def playerBJ = (player == 21 && table.player.size() == 2)
-		def bankBJ = (bank == 21 && table.bank.size() == 2)
-		def playerBurn = (player > 21)
+		def playerBJ = player == 21 && table.player.size() == 2
+		def bankBJ = bank == 21 && table.bank.size() == 2
+		def playerBurn = player > 21
+		def bankBurn = bank > 21
 		
-		if( !playerBurn && ((playerBJ && !bankBJ) || player > bank) ) {
+		if( !playerBurn && (bankBurn || (playerBJ && !bankBJ) || player > bank) ) {
 			winner = "player"
 		} else if (playerBurn || (bankBJ && !playerBJ) || bank > player) {
 			winner = "bank"
