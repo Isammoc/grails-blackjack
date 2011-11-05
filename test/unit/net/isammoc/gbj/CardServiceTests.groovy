@@ -26,12 +26,22 @@ class CardServiceTests extends GrailsUnitTestCase {
 	}
 
 	void testCanCard() {
+		def table = new Table()
+		table.bank = [ace]
 		// Possible card
-		assert cardService.canCard([jack,nine])
-		assert cardService.canCard([ace, ace, nine])
+		table.player = [jack,nine]
+		assert cardService.canCard(table)
+		table.player = [ace, ace, nine]
+		assert cardService.canCard(table)
 		
 		// Impossible card
-		assert !cardService.canCard([jack,jack,jack])
-		assert !cardService.canCard([ace, jack])
+		table.player = [jack,jack,jack]
+		assert !cardService.canCard(table)
+		table.player = [ace, jack]
+		assert !cardService.canCard(table)
+		table.bank = [ace, jack]
+		assert !cardService.canCard(table)
+		table.player = [jack, nine]
+		assert !cardService.canCard(table)
 	}
 }

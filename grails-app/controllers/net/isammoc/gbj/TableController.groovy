@@ -12,7 +12,7 @@ class TableController {
 		table.addToPlayer(cardService.random())
 		table.addToPlayer(cardService.random())
 		table.save(flush:true)
-		if(!cardService.canCard(table.player)) {
+		if(!cardService.canCard(table)) {
 			cardService.playBank(table)
 		}
 		redirect(action:"show",params:[id:table.id])
@@ -23,16 +23,16 @@ class TableController {
 		[
 			table:table,
 			score:cardService.scoreToDisplay(table.player),
-			canCard:cardService.canCard(table.player)
+			canCard:cardService.canCard(table)
 		]
 	}
 
 	def card = {
 		def table = Table.get(params.id)
-		if(cardService.canCard(table.player)){
+		if(cardService.canCard(table)){
 			table.addToPlayer(cardService.random())
 			table.save(flush:true)
-			if(!cardService.canCard(table.player)) {
+			if(!cardService.canCard(table)) {
 				cardService.playBank(table)
 			}
 		} else {

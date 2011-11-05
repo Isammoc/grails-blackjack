@@ -63,8 +63,11 @@ class CardService {
 	}
 	
 	
-	boolean canCard(List<Card> cards) {
-		def currentScore = scoreToDisplay(cards)
+	boolean canCard(Table table) {
+		if(table.bank.size() >= 2) {
+			return false
+		}
+		def currentScore = scoreToDisplay(table.player)
 		
 		def pattern = ~/\d+/
 		if( pattern.matcher(currentScore).matches() && Integer.parseInt(currentScore) <21 )
