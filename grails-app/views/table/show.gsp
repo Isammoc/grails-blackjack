@@ -42,7 +42,7 @@ bank,player,hand {
 			</g:elseif>
 		</div>
 		<player>
-			Votre main : ${score}
+			${ table.user.username } (${ table.user.account }) : ${score}
 			<hand>
 				<g:each status="i" var="card" in="${table.player}">
 					<img class="card" src="${resource(dir:'images/cards/default',file:"$card.name"+'.svg')}" alt="${card.name}" style="left:${2.2*i}em"/>
@@ -60,15 +60,17 @@ bank,player,hand {
 				</g:if>
 			</hand>
 		</player>
-		<controls>
-			<g:if test="${canCard}">
-				<a href="${createLink(action:'card',id:"$table.id")}">Carte</a>
-				<a href="${createLink(action:'stop',id:"$table.id")}">Stop</a>
-			</g:if>
-			<g:if test="${winner}">
-				<a href="${createLink(action:'renew',id:"$table.id")}">Rejouer</a>
-			</g:if>
-		</controls>
+		<g:if test="${ currentUser == table.user }">
+			<controls>
+				<g:if test="${canCard}">
+					<a href="${createLink(action:'card',id:"$table.id")}">Carte</a>
+					<a href="${createLink(action:'stop',id:"$table.id")}">Stop</a>
+				</g:if>
+				<g:if test="${winner}">
+					<a href="${createLink(action:'renew',id:"$table.id")}">Rejouer</a>
+				</g:if>
+			</controls>
+		</g:if>
 	</body>
 </html>
 </g:applyLayout>

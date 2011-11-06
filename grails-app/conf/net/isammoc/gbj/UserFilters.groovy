@@ -10,6 +10,9 @@ class UserFilters {
                 
             }
             after = { model ->
+				if(model == null) {
+					model = [:]
+				}
 				model.currentUser = springSecurityService.currentUser
             }
             afterView = {

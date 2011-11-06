@@ -38,8 +38,15 @@ class TableController {
 		]
 	}
 
+	@Secured(['ROLE_USER'])
 	def card = {
 		def table = Table.get(params.id)
+		if(table.user != springSecurityService.currentUser) {
+			flash.message = "Vous ne pouvez pas tirer une carte sur la table d'un autre joueur"
+			redirect(action:"show",params:[id:table.id])
+			return
+		}
+		
 		if(cardService.canCard(table)){
 			table.addToPlayer(cardService.random())
 			table.save(flush:true)
@@ -52,14 +59,27 @@ class TableController {
 		redirect(action:"show",params:[id:table.id])
 	}
 
+	@Secured(['ROLE_USER'])
 	def stop = {
 		def table = Table.get(params.id)
+		if(table.user != springSecurityService.currentUser) {
+			flash.message = "Vous ne pouvez pas stopper sur la table d'un autre joueur"
+			redirect(action:"show",params:[id:table.id])
+			return
+		}
 		cardService.playBank(table)
 		redirect(action:"show",params:[id:table.id])
 	}
 
+	@Secured(['ROLE_USER'])
 	def renew = {
 		def table = Table.get(params.id)
+		if(table.user != springSecurityService.currentUser) {
+			flash.message = "Vous ne pouvez pas rejouer sur la table d'un autre joueur"
+			redirect(action:"show",params:[id:table.id])
+			return
+		}
+
 		table.player = []
 		table.bank = []
 		table.addToBank(cardService.random())
