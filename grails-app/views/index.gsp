@@ -12,5 +12,6 @@
 	    		</tr>
 	    	</g:each>
 	    </table>
+	    <a href="${createLink(controller:'table',action:'create')}">Cr&eacute;er une nouvelle table</a>
 	</body>
 </html>

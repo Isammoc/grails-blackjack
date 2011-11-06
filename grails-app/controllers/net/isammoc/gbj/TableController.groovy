@@ -1,16 +1,23 @@
 package net.isammoc.gbj
 
+import grails.plugins.springsecurity.Secured;
+
 class TableController {
 
 	def cardService
+	def springSecurityService
 
 	def index = { redirect(action:"create") }
 
+	@Secured(['ROLE_USER'])
 	def create = {
 		def table = new Table()
 		table.addToBank(cardService.random())
 		table.addToPlayer(cardService.random())
 		table.addToPlayer(cardService.random())
+		table.user = springSecurityService.currentUser
+		table.bet = 2
+		table.user.account -= 2
 		table.save(flush:true)
 		if(!cardService.canCard(table)) {
 			cardService.playBank(table)
@@ -56,6 +63,8 @@ class TableController {
 		table.addToBank(cardService.random())
 		table.addToPlayer(cardService.random())
 		table.addToPlayer(cardService.random())
+		table.bet = 2
+		table.user.account -= 2
 		table.save(flush:true)
 		if(!cardService.canCard(table)) {
 			cardService.playBank(table)

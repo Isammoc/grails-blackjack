@@ -10,6 +10,10 @@
             </dd>
             <dt>Jetons</dt>
             <dd>${currentUser.account }</dd>
+            <g:if test="${table }">
+            <dt>Mise</dt>
+            <dd>${ table.bet}</dd>
+            </g:if>
         </dl>
         <sec:ifLoggedIn><g:link controller="logout" action="index">Se d&eacute;connecter</g:link></sec:ifLoggedIn>
     </sec:ifLoggedIn>
