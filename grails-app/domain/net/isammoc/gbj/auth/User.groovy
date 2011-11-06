@@ -8,11 +8,12 @@ class User {
 
 	String username
 	String password
-	String salt
-	boolean enabled
-	boolean accountExpired
-	boolean accountLocked
-	boolean passwordExpired
+	String salt = ""
+	int account = 1000
+	boolean enabled = true
+	boolean accountExpired = false
+	boolean accountLocked = false
+	boolean passwordExpired = false
 
 	static constraints = {
 		username blank: false, unique: true

@@ -1,10 +1,23 @@
 import net.isammoc.gbj.Card
+import net.isammoc.gbj.auth.Role
 
 
 class BootStrap {
 
-	def init = { servletContext -> createCardsIfNeeded() }
+	def init = { servletContext ->
+		createCardsIfNeeded()
+		createRolesIfNeeded()
+	}
+	
 	def destroy = {
+	}
+
+	void createRolesIfNeeded() {
+		if (!Role.findByAuthority("ROLE_USER")) {
+			def userRole = new Role(
+					authority: "ROLE_USER",
+					description: "Registered user").save()
+		}
 	}
 
 	void createCardsIfNeeded() {
