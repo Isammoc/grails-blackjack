@@ -6,6 +6,11 @@
 	padding: 0.5em;
 }
 
+
+div.winner {
+	height : 3em;
+}
+
 img.card {
 	width: 10em;
 	position: absolute;
@@ -26,7 +31,17 @@ div.blackjack > span {
 	font-weight: 2em;
 	color : black;
 }
-div.blackjack > img {
+
+div.burn > img 
+{
+	position: absolute;
+	top: 2em;
+	left: 3em;
+	height: 12em;
+}
+
+div.blackjack > img 
+{
 	position: absolute;
 	top: 3em;
 	left: 1em;

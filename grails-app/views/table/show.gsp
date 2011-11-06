@@ -5,14 +5,10 @@
 bank,player,hand {
 	display: block;
 }
-
-.winner {
-background-color: green;
-}
 		</style>
 	</head>
 	<body>
-		<bank class="${winner == 'bank' ? 'winner':''}">
+		<bank>
 			Banque : 
 			<g:if test="${table.bank.size() > 1}">
 				${bankScore}
@@ -27,14 +23,25 @@ background-color: green;
 						<span>Blackjack !</span>
 					</div>
 				</g:if>
+				<g:if test="${ bankBurn }">
+					<div class="burn">
+						<img src="${resource(dir:'images/cards/default',file:'burnt.svg')}" alt="burn" />
+					</div>
+				</g:if>
 			</hand>
 		</bank>
-		<g:if test="${winner == 'draw'}">
-			<div class="winner">
-				<h3>Egalit&eacute;</h3>
-			</div>
-		</g:if>
-		<player class="${winner == 'player' ? 'winner':''}">
+		<div class="winner">
+			<g:if test="${ winner == 'draw'}">
+				<h2>Egalit&eacute;</h3>
+			</g:if>
+			<g:elseif test="${ winner == 'bank' }">
+				<h2>Perdu</h3>
+			</g:elseif>
+			<g:elseif test="${ winner == 'player' }">
+				<h2>Gagné</h3>
+			</g:elseif>
+		</div>
+		<player>
 			Votre main : ${score}
 			<hand>
 				<g:each status="i" var="card" in="${table.player}">
@@ -44,6 +51,11 @@ background-color: green;
 					<div class="blackjack">
 						<img src="${resource(dir:'images/cards/default',file:'blackjack.svg')}" alt="BlackJack"/>
 						<span>Blackjack !</span>
+					</div>
+				</g:if>
+				<g:if test="${ playerBurn }">
+					<div class="burn">
+						<img src="${resource(dir:'images/cards/default',file:'burnt.svg')}" alt="burn" />
 					</div>
 				</g:if>
 			</hand>

@@ -32,7 +32,9 @@ class TableController {
 			score:cardService.scoreToDisplay(table.player),
 			bankScore:cardService.scoreToDisplay(table.bank),
 			canCard:cardService.canCard(table),
-			winner:cardService.whoWin(table)
+			winner:cardService.whoWin(table),
+			bankBurn:cardService.score(table.bank) > 21,
+			playerBurn:cardService.score(table.player) > 21
 		]
 	}
 
