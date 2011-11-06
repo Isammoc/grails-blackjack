@@ -62,8 +62,8 @@ bank,player,hand {
 		</player>
 		<controls>
 			<g:if test="${canCard}">
-				<a href="${createLink(action:'card',id:"$table.id")}">Carte</a><br />
-				<a href="${createLink(action:'stop',id:"$table.id")}">Stop</a><br />
+				<a href="${createLink(action:'card',id:"$table.id")}">Carte</a>
+				<a href="${createLink(action:'stop',id:"$table.id")}">Stop</a>
 			</g:if>
 			<g:if test="${winner}">
 				<a href="${createLink(action:'renew',id:"$table.id")}">Rejouer</a>

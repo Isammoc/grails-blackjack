@@ -7,6 +7,21 @@
 }
 
 
+controls a {
+	background-color: transparent;
+	background-image: url(images/button.svg);
+	background-repeat: no-repeat;
+	color: white;
+	font-weight: bold;
+	font-size:1.2em;
+	width:80px;
+	height:26px;
+	display:block;
+	float:left;
+	text-align:center;
+	margin : 5px;
+}
+
 div.winner {
 	height : 3em;
 }
