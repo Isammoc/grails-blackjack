@@ -19,7 +19,7 @@ background-color: green;
 			</g:if>
 			<hand>
 				<g:each status="i" var="card" in="${table.bank}">
-					<img class="card" src="${resource(dir:'images/cards/default',file:"$card.name"+'.svg')}" alt="${card.name}" style="left:-${7.8*i}em" />
+					<img class="card" src="${resource(dir:'images/cards/default',file:"$card.name"+'.svg')}" alt="${card.name}" style="left:${2.2*i}em" />
 				</g:each>
 				<g:if test="${ bankScore == 'Blackjack' }">
 					<div class="blackjack">
@@ -38,7 +38,7 @@ background-color: green;
 			Votre main : ${score}
 			<hand>
 				<g:each status="i" var="card" in="${table.player}">
-					<img class="card" src="${resource(dir:'images/cards/default',file:"$card.name"+'.svg')}" alt="${card.name}" style="left:-${7.8*i}em"/>
+					<img class="card" src="${resource(dir:'images/cards/default',file:"$card.name"+'.svg')}" alt="${card.name}" style="left:${2.2*i}em"/>
 				</g:each>
 				<g:if test="${ score == 'Blackjack' }">
 					<div class="blackjack">

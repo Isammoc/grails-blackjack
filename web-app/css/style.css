@@ -8,12 +8,14 @@
 
 img.card {
 	width: 10em;
-	position: relative;
+	position: absolute;
 }
 
 hand {
 	position:relative;
+	height : 14em;
 }
+
 
 div.blackjack > span {
 	position: absolute;
