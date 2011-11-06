@@ -1,6 +1,7 @@
+<g:applyLayout name="main">
 <html>
     <head>
-        <title>Register New User</title>
+        <title>Enregistrement</title>
         <style>
             dd {
                 text-align: left;
@@ -15,7 +16,7 @@
         <div class="flash">${flash.message}</div>
       </g:if>
       
-        <h1>Register New User</h1>
+        <h1>Inscription d'un nouvel utilisateur</h1>
 
         <g:hasErrors bean="${userDetails}">
             <div class="errors">
@@ -25,15 +26,16 @@
 
         <g:form action="register">
             <dl>
-                <dt>Login</dt>
+                <dt>Identifiant</dt>
                 <dd><g:textField name="username" value="${userDetails?.username}"/></dd>
                 <dt>Password</dt>
                 <dd><g:passwordField name="password"/></dd>
                 <dt>V&eacute;rification</dt>
                 <dd><g:passwordField name="passwordRepeat" /></dd>
-                <dt><g:submitButton name="register" value="Register"/></dt>
+                <dt><g:submitButton name="register" value="S'inscrire"/></dt>
             </dl>
 
         </g:form>
     </body>
 </html>
+</g:applyLayout>

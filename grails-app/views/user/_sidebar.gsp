@@ -36,7 +36,7 @@
                     <td colspan="2"><g:submitButton name="login" value="Login"/></td>
                   </tr>
                   <tr>
-				    <td colspan="2"><a href="${createLink(controller:'user',action:'register')}">S'enregistrer</a></td>
+				    <td colspan="2"><a href="${createLink(controller:'user',action:'register')}">S'inscrire</a></td>
                   </tr>
                 </table>
 				

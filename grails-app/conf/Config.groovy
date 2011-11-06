@@ -57,10 +57,12 @@ environments {
         grails.serverURL = "http://blackjack.unevraivie.fr"
     }
     development {
-        grails.serverURL = "http://localhost:8080/${appName}"
+        grails.serverURL = "http://localhost:9090/"
+		grails.server.port.http=9090
     }
     test {
-        grails.serverURL = "http://localhost:8080/${appName}"
+        grails.serverURL = "http://localhost:9090/"
+		grails.server.port.http=9090
     }
 
 }
