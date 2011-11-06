@@ -1,6 +1,7 @@
 package net.isammoc.gbj
 
 import grails.test.*
+import net.isammoc.gbj.auth.User
 
 class CardServiceTests extends GrailsUnitTestCase {
 
@@ -47,6 +48,8 @@ class CardServiceTests extends GrailsUnitTestCase {
 	
 	void testWhoWin() {
 		def table = new Table()
+		table.user = new User(username:'tester')
+		mockDomain(Table, [table])
 		table.bank = [nine]
 		table.player = [ace, ace]
 		assert null == cardService.whoWin(table)
