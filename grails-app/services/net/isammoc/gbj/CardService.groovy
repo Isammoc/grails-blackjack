@@ -91,6 +91,10 @@ class CardService {
 			return null
 		}
 
+		if( table.abandon ) {
+			return 'abandon'
+		}
+		
 		def winner
 		def player = score(table.player)
 		def bank =  score(table.bank)

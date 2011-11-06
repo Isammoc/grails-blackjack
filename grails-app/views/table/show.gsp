@@ -40,6 +40,9 @@ bank,player,hand {
 			<g:elseif test="${ winner == 'player' }">
 				<h2>Gagné</h3>
 			</g:elseif>
+			<g:elseif test="${ winner == 'abandon' }">
+				<h2>Abandon</h3>
+			</g:elseif>
 		</div>
 		<player>
 			${ table.user.username } (${ table.user.account }) : ${score}
@@ -63,8 +66,12 @@ bank,player,hand {
 		<g:if test="${ currentUser == table.user }">
 			<controls>
 				<g:if test="${canCard}">
+					<a href="${createLink(action:'doub',id:"$table.id")}">Doubler</a>
 					<a href="${createLink(action:'card',id:"$table.id")}">Carte</a>
 					<a href="${createLink(action:'stop',id:"$table.id")}">Stop</a>
+					<g:if test="${ table.player.size() == 2 }">
+						<a href="${createLink(action:'abandon',id:"$table.id")}">Abandon</a>
+					</g:if>
 				</g:if>
 				<g:if test="${winner}">
 					<a href="${createLink(action:'renew',id:"$table.id")}">Rejouer</a>

@@ -8,6 +8,7 @@ class Table {
 	List player
 	User user
 	int bet = 0
+	boolean abandon = false
 	
 	static hasMany = [bank:Card, player:Card]
 	
