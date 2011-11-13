@@ -3,47 +3,43 @@
     <head>
         <title><g:layoutTitle default="Grails Casino" /></title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link href="${resource(dir:'css',file:'style.css')}" rel="stylesheet" type="text/css" media="screen" />
+		<link href="${resource(dir:'css',file:'casino.css')}" rel="stylesheet" type="text/css" media="screen" />
 		<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
         <g:layoutHead />
     </head>
     <body>
-    <div id="wrapper">
-		<div id="header">
+		<header>
 			<div id="logo">
-				<h1><a href="${createLink(uri:'/') }">Grails Casino</a></h1>
+				<a href="${createLink(uri:'/') }">Grails Casino</a>
 			</div>
-		</div>
-		<div id="menu">
-			<ul>
-				<li class="current_page_item"><a href="#">Accueil</a></li>
-		<!-- 
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">Photos</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Links</a></li>
-				<li><a href="#">Contact</a></li>
-		-->
-			</ul>
-		</div>
+			<nav>
+				<nav:render /><%--
+				<ul>
+					<li class="active"><a href="#">Accueil</a></li>
+				</ul>
+			--%></nav>
+		</header>
 		<div id="page">
-			<div id="page-bgtop">
-				<div id="page-bgbtm">
-					<g:if test="${flash.message}">
-						<div class="flash">${flash.message}</div>
-					</g:if>
-					<div id="content">
-	        			<g:layoutBody />
-	        			<div style="clear: both;">&nbsp;</div>
-	        		</div>
-	    			<g:render template="/user/sidebar"/>
-	        		<div style="clear: both;">&nbsp;</div>
-	        	</div>
-	        </div>
-	    </div>
-	</div>
-       	<div id="footer">
-			<p>Copyright (c) 2011 Isammoc. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+			<section id="left">
+	   			<g:render template="/user/sidebar"/>
+			</section>
+			<section id="content">
+				<g:if test="${flash.message}">
+					<div class="flash">${flash.message}</div>
+				</g:if>
+				<div id="table">
+	       			<g:layoutBody />
+	       			<div style="clear: both;">&nbsp;</div>
+	       		</div>
+	       	</section>
+		    <section id="right">
+		    </section>
 		</div>
+       	<footer>
+			<p>Copyright (c) 2011 Isammoc.</p>
+		</footer>
     </body>
 </html>

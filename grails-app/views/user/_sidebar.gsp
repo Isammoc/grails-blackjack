@@ -22,24 +22,16 @@
        <h3>Connexion</h3>
         <div id="loginForm">
             <form id="loginForm" method="POST" action="${request.contextPath + config.apf.filterProcessesUrl}">
-                <table>
-                  <tr>
-                    <td>Login :</td><td><g:textField id="j_username" name="j_username"/></td>
-                  </tr>
-                  <tr>
-                    <td>Mot de passe :</td><td><input name="j_password" type="password"/></td>
-                  </tr>
-                  <tr>
-				    <td>Se souvenir de moi la prochaine fois :</td><td><input type='checkbox' name='${config.rememberMe.parameter}'<g:if test='${hasCookie}'> checked='checked'</g:if>/></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2"><g:submitButton name="login" value="Login"/></td>
-                  </tr>
-                  <tr>
-				    <td colspan="2"><a href="${createLink(controller:'user',action:'register')}">S'inscrire</a></td>
-                  </tr>
-                </table>
-				
+                <dl>
+                  <dt>Login :</dt>
+                  <dd><g:textField id="j_username" name="j_username" /></dd>
+                  <dt>Mot de passe :</dt>
+                  <dd><input name="j_password" type="password"/></dd>
+				  <dt>Rester connecté(e) :</dt>
+				  <dd><input type='checkbox' name='${config.rememberMe.parameter}'<g:if test='${hasCookie}'> checked='checked'</g:if>/></dd>
+                </dl>
+				<g:submitButton name="login" value="Login"/>
+				<a href="${createLink(controller:'user',action:'register')}">S'inscrire</a>
             </form>
         </div>
     </sec:ifNotLoggedIn>

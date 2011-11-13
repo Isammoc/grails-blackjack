@@ -3,7 +3,7 @@
     <head>
         <title>Enregistrement</title>
         <style>
-            dd {
+           #content dd {
                 text-align: left;
                 margin-left: 80px;
                 margin-top: 5px;
@@ -26,11 +26,11 @@
 
         <g:form action="register">
             <dl>
-                <dt>Identifiant</dt>
+                <dt>Identifiant :</dt>
                 <dd><g:textField name="username" value="${userDetails?.username}"/></dd>
-                <dt>Password</dt>
+                <dt>Mot de passe :</dt>
                 <dd><g:passwordField name="password"/></dd>
-                <dt>V&eacute;rification</dt>
+                <dt>V&eacute;rification :</dt>
                 <dd><g:passwordField name="passwordRepeat" /></dd>
                 <dt><g:submitButton name="register" value="S'inscrire"/></dt>
             </dl>

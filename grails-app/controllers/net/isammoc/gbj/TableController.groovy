@@ -3,7 +3,7 @@ package net.isammoc.gbj
 import grails.plugins.springsecurity.Secured;
 
 class TableController {
-
+	
 	def cardService
 	def springSecurityService
 

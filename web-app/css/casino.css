@@ -1,0 +1,179 @@
+@CHARSET "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #888888;
+}
+
+section {
+	background-color: #E0E0E0;
+}
+
+/********************************************
+ Header
+********************************************/
+#logo {
+	float: left;
+	margin: 5px;
+}
+
+#logo a {
+	color: gray;
+	text-decoration: none;
+}
+
+nav {
+    background: none repeat scroll 0 0 #484848;
+    height: 2em;
+}
+
+nav li {
+	display: inline-block;
+	margin:5px;
+}
+
+nav a {
+	font-variant: small-caps;
+	color: #FFFFFF;
+    font-size: 14px;
+    padding: 5px;
+	text-decoration: none;
+}
+
+nav .navigation_active a {
+    background: none repeat scroll 0 0 #FFA800;
+}
+
+
+/********************************************
+ Page
+********************************************/
+#page {
+	margin: 10px;
+	position: relative;
+}
+
+
+#left {
+/*	display: inline-block; */
+float:left;
+	width : 12em;
+	padding: 10px;
+	border: black 1px solid;
+	border-radius: 15px;
+	box-shadow: 4px 4px 2px orange;
+	vertical-align: top;
+}
+
+#left dd {
+	text-align: right;
+}
+
+#content {
+	/*display: inline-block;*/
+	margin-left:14em;
+	padding: 10px;
+	min-width:600px;
+	min-height:40em;
+	border: black 1px solid;
+	border-radius: 15px;
+	box-shadow: 4px 4px 2px orange;
+	/*position: absolute;*/
+	width:70%;
+}
+
+.flash {
+	margin: 1em;
+	background-color: #FF9F9F;
+	border: 1px solid black;
+	padding: 0.5em;
+}
+
+
+/********************************************
+ Footer
+********************************************/
+footer {
+	position: absolute;
+	bottom: 0px;
+	right: 0px; 
+	clear: both;
+	text-align: center;
+	border: 1px gray solid;
+	background-color: white;
+}
+
+/********************************************
+ Table
+********************************************/
+playground {
+	display:block;
+	background-color: #006937;
+	border-radius: 30px;
+	color: white;
+	padding:20px;
+	border: 6px maroon solid;
+}
+
+
+
+
+controls a {
+	background-image: url(images/button.svg);
+	background-repeat: no-repeat;
+	color: white;
+	font-weight: bold;
+	font-size:1.1em;
+	text-decoration:none;
+	width:80px;
+	height:26px;
+	display:block;
+	float:left;
+	text-align:center;
+	margin : 5px;
+}
+
+div.winner {
+	height : 3em;
+}
+
+img.card {
+	width: 7em;
+	position: absolute;
+}
+
+hand {
+	position:relative;
+	height : 10em;
+}
+
+
+div.blackjack > span {
+	position: absolute;
+	top: 2.5em;
+	left: .8em;
+	width: 7em;
+	font-size: 1.5em;
+	font-weight: 2em;
+	color : black;
+}
+
+div.burn > img 
+{
+	position: absolute;
+	top: 1em;
+	left: 1.5em;
+	height: 9em;
+}
+
+div.blackjack > img 
+{
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	width: 8em;
+}
