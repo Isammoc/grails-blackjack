@@ -8,6 +8,7 @@ hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = true
     cache.provider_class = 'net.sf.ehcache.hibernate.EhCacheProvider'
+	naming_strategy = net.isammoc.gbj.util.MyNamingStrategy
 }
 // environment specific settings
 environments {
